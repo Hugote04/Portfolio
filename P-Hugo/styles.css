@@ -264,3 +264,61 @@ a:hover {
     background-color: var(--primary-color);
     color: white;
 }
+
+/* ========= SECCIONES Y TARJETAS ========= */
+.content-section {
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    max-width: 900px;
+    margin: 0 auto;
+    /* opacity: 0; */ /* Desactivado temporalmente hasta implementar JS */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-card {
+    background-color: var(--card-background);
+    border-radius: var(--card-radius);
+    padding: calc(var(--spacing-unit) * 2.5);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Detalle ornamental medieval */
+.section-card::before, .section-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--accent-color-medieval);
+    border-style: solid;
+    opacity: 0.5;
+}
+.section-card::before {
+    top: 15px;
+    left: 15px;
+    border-width: 2px 0 0 2px;
+}
+.section-card::after {
+    bottom: 15px;
+    right: 15px;
+    border-width: 0 2px 2px 0;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--spacing-unit) 0 calc(var(--spacing-unit) * 1.5) 0;
+    transition: background-color 0.3s;
+}
+
+.icon-medieval {
+    color: var(--accent-color-medieval);
+}
