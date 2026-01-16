@@ -133,8 +133,48 @@
                 </div>
             </div>
         </section>
-        <section id="formacion"></section>
-        <section id="contacto"></section>
+        <section id="formacion" class="content-section">
+            <div class="section-card">
+                 <h2>Formación</h2>
+                 <div class="divider"></div>
+                 <div class="education-item">
+                     <h3>Grado Superior en Desarrollo de Aplicaciones Web (DAW)</h3>
+                     <p>IES CLARA DEL REY, Madrid | 2023 - Presente</p>
+                 </div>
+                 <div class="education-item">
+                    <h3>Bachillerato de Ciencias Sociales</h3>
+                    <p>IES GREGORIO MARAÑÓN, Madrid | 2021 - 2023</p>
+                </div>
+            </div>
+        </section>
+        <section id="contacto" class="content-section">
+            <div class="section-card">
+                <h2>Contacto</h2>
+                <div class="divider"></div>
+                <p>¿Interesado en mi perfil? ¡Contacta conmigo!</p>
+                <div class="contact-links">
+                    <a href="https://github.com/tu-usuario" target="_blank" class="contact-btn" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/tu-usuario" target="_blank" class="contact-btn" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="mailto:hugo.tejero.mar@gmail.com" class="contact-btn" aria-label="Email">Email</a>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <p id="form-message" class="form-message"></p>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer-container">
