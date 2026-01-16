@@ -1,1 +1,1 @@
-// Archivo JavaScript principal para el portfolio 
+// Archivo JavaScript principal para el portfolio */
