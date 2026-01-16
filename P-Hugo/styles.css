@@ -322,3 +322,48 @@ a:hover {
 .icon-medieval {
     color: var(--accent-color-medieval);
 }
+
+/* ========= HABILIDADES Y FORMACIÓN ========= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+}
+.skill-category h3 {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+}
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.skill-badge {
+    background-color: var(--background-end);
+    color: var(--text-color-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+.dark-mode .skill-badge {
+    background-color: var(--background-start);
+}
+
+.education-item:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+.education-item h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+.education-item p {
+    font-style: italic;
+    color: var(--text-color-light);
+    margin: 0;
+}
