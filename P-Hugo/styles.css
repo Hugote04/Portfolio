@@ -1,1 +1,106 @@
-/* Hoja de estilos principal para el portfolio */
+/* ========= CONFIGURACIÓN Y VARIABLES ========= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Cinzel:wght@400;700&display=swap');
+
+:root {
+    /* Fuentes */
+    --font-sans: 'Roboto', sans-serif;
+    --font-serif-accent: 'Cinzel', serif;
+
+    /* Colores (Tema Claro) */
+    --primary-color: #3b82f6; /* Azul moderno */
+    --primary-color-darker: #2563eb;
+    --background-start: #f1f5f9; /* Blanco roto */
+    --background-end: #e2e8f0; /* Gris claro */
+    --card-background: #ffffff;
+    --text-color: #0f172a; /* Azul pizarra muy oscuro */
+    --text-color-light: #475569;
+    --border-color: #cbd5e1;
+
+    /* Acentos Medievales */
+    --accent-color-medieval: #c9a227; /* Dorado tenue */
+    --accent-color-medieval-soft: #fef3c7; 
+
+    /* General */
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --card-radius: 24px;
+    --spacing-unit: 1rem;
+}
+
+/* TEMA OSCURO - Se activa con JS o por sistema */
+.dark-mode, :root:not(.light-mode) {
+    --primary-color: #60a5fa;
+    --primary-color-darker: #3b82f6;
+    --background-start: #1e293b;
+    --background-end: #0f172a;
+    --card-background: #334155;
+    --text-color: #f1f5f9;
+    --text-color-light: #94a3b8;
+    --border-color: #475569;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    --accent-color-medieval-soft: #4e4429;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-mode) {
+        --primary-color: #60a5fa;
+        --primary-color-darker: #3b82f6;
+        --background-start: #1e293b;
+        --background-end: #0f172a;
+        --card-background: #334155;
+        --text-color: #f1f5f9;
+        --text-color-light: #94a3b8;
+        --border-color: #475569;
+        --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --accent-color-medieval-soft: #4e4429;
+    }
+}
+
+/* ========= ESTILOS GLOBALES ========= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-image: linear-gradient(180deg, var(--background-start), var(--background-end));
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif-accent);
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-unit);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+p {
+    margin-bottom: var(--spacing-unit);
+    color: var(--text-color-light);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--primary-color-darker);
+}
