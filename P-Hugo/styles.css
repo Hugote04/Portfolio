@@ -179,7 +179,6 @@ a:hover {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Estado inicial: se ve la luna (tema claro) */
 .theme-toggle .fa-sun {
     opacity: 0;
     transform: translate(-50%, 100%);
@@ -189,7 +188,6 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 
-/* Estado tema oscuro: se ve el sol */
 .dark-mode .theme-toggle .fa-sun {
     opacity: 1;
     transform: translate(-50%, -50%);
@@ -197,4 +195,72 @@ a:hover {
 .dark-mode .theme-toggle .fa-moon {
     opacity: 0;
     transform: translate(-50%, -150%);
+}
+
+/* ========= HERO SECTION ========= */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-unit);
+    padding-top: 60px; /* Evitar solapamiento con header */
+}
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+.hero-subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--text-color-light);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+.hero-location {
+    color: var(--text-color-light);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+.hero-location .fas {
+    margin-right: 0.5rem;
+    color: var(--accent-color-medieval);
+}
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ========= BOTONES ========= */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--primary-color-darker);
+    color: white;
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
