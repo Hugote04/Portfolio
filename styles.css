@@ -94,6 +94,12 @@ a:hover {
     align-items: center;
     padding: 0 var(--spacing-unit);
     height: 60px;
+    position: relative;
+}
+.nav-logo {
+    height: 40px;
+    position: absolute;
+    left: var(--spacing-unit);
 }
 .nav-link {
     padding: 0.5rem 1rem;
@@ -249,4 +255,27 @@ a:hover {
     .hero-container { flex-direction: column; text-align: center; }
     .hero-content { text-align: center; }
     .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+}
+
+/* ========= PROYECTOS (Enlaces) ========= */
+.project-links {
+    margin-bottom: 1rem;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: #1c1917;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+}
+
+.project-link-btn:hover {
+    background-color: var(--primary-color-darker);
+    transform: scale(1.1);
 }
