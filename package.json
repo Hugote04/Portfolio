@@ -1,17 +1,14 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Este es el repositorio de mi portfolio personal, un proyecto vivo que refleja mi viaje como desarrollador web. Está construido con **HTML5, CSS3 y JavaScript puros**, aplicando una estética rústica y medieval inspirada en una de mis actividades anteriores.",
-  "main": "main.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "live-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "vite": "^5.4.21"
   }
 }

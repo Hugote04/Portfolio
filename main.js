@@ -1,5 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ========= MENÚ HAMBURGUESA =========
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinksContainer = document.querySelector('.nav-links-container');
+
+    if (navToggle && navLinksContainer) {
+        navToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+
+            // Cambiar el aria-label para accesibilidad
+            if (navLinksContainer.classList.contains('active')) {
+                navToggle.setAttribute('aria-label', 'Cerrar menú');
+            } else {
+                navToggle.setAttribute('aria-label', 'Abrir menú');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace (para navegación en la misma página)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinksContainer.classList.contains('active')) {
+                    navLinksContainer.classList.remove('active');
+                    navToggle.querySelector('i').classList.add('fa-bars');
+                    navToggle.querySelector('i').classList.remove('fa-times');
+                    navToggle.setAttribute('aria-label', 'Abrir menú');
+                }
+            });
+        });
+    }
+
+
     // ========= GESTIÓN DEL TEMA (CLARO/OSCURO) =========
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -23,12 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(prefersDark.matches ? 'dark' : 'light');
     }
     
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', newTheme);
-        applyTheme(newTheme);
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        });
+    }
 
     prefersDark.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
@@ -39,41 +74,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ========= NAVEGACIÓN ACTIVA AL HACER SCROLL =========
     const sections = document.querySelectorAll('main > section[id]');
-    const navLinks = document.querySelectorAll('.main-nav a.nav-link');
+    const navLinks = document.querySelectorAll('.nav-links-container a.nav-link');
 
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.4
+        rootMargin: '-60px 0px -40% 0px', // Ajustado para el header fijo
+        threshold: 0
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
+            const id = entry.target.getAttribute('id');
+            const correspondingLink = document.querySelector(`.nav-links-container a[href="#${id}"]`);
+
+            if (entry.isIntersecting && entry.intersectionRatio > 0) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
             }
         });
     }, observerOptions);
 
     sections.forEach(section => {
-        sectionObserver.observe(section);
+        if (section) sectionObserver.observe(section);
     });
 
 
     // ========= ANIMACIÓN DE APARICIÓN DE TARJETAS AL HACER SCROLL =========
-    const animatedCards = document.querySelectorAll('.content-section');
+    const animatedCards = document.querySelectorAll('.section-card');
 
     const cardObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // observer.unobserve(entry.target); // Opcional: dejar de observar
+                observer.unobserve(entry.target); // Dejar de observar una vez es visible
             }
         });
     }, { threshold: 0.1 });
