@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
-    if(contactForm) {
+    if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -123,11 +123,37 @@ document.addEventListener('DOMContentLoaded', () => {
             if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
                 formMessage.textContent = 'Por favor, completa todos los campos.';
                 formMessage.style.color = '#ef4444';
-            } else {
-                formMessage.textContent = 'Mensaje preparado (demo). Puedes contactarme por email o LinkedIn.';
-                formMessage.style.color = '#22c55e';
-                contactForm.reset(); 
+                return;
             }
+
+            const formData = new FormData(contactForm);
+            const action = contactForm.action;
+
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    formMessage.textContent = '¡Gracias por tu mensaje! Te responderé pronto.';
+                    formMessage.style.color = '#22c55e';
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            formMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formMessage.textContent = 'Oops! Hubo un problema al enviar tu mensaje.';
+                        }
+                        formMessage.style.color = '#ef4444';
+                    })
+                }
+            }).catch(error => {
+                formMessage.textContent = 'Oops! Hubo un problema al enviar tu mensaje.';
+                formMessage.style.color = '#ef4444';
+            });
 
             setTimeout(() => {
                 formMessage.textContent = '';
