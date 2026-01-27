@@ -2,7 +2,7 @@
 
 Este es el repositorio de mi portfolio personal, un proyecto vivo que refleja mi viaje como desarrollador web. Está construido con **HTML5, CSS3 y JavaScript puros**, aplicando una estética rústica y medieval inspirada en una de mis actividades anteriores.
 
-> [**Puedes ver el portfolio en acción aquí.**](https://portfolio-hugote04s-projects.vercel.app)
+> [**Puedes ver el portfolio en acción aquí.**](https://portfolio-hugotejero.vercel.app)
 
 ## Sobre mí
 > Soy estudiante de Grado Superior en Desarrollo de Aplicaciones Web y me estoy formando como desarrollador web junior, sumando el manejo de APIs y bases de datos en estas. Trabajo a diario con HTML, Java, JavaScript y Vue.js, además de usar Git para controlar versiones.
