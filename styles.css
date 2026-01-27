@@ -293,7 +293,7 @@ a:hover {
     .main-nav {
         justify-content: space-between;
     }
-    .nav-links-container.active {
+    .nav-links-container.menu-open {
         display: flex;
         flex-direction: column;
         position: fixed;

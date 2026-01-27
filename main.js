@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (navToggle && navLinksContainer) {
         navToggle.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('active');
+            navLinksContainer.classList.toggle('menu-open');
             const icon = navToggle.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
 
             // Cambiar el aria-label para accesibilidad
-            if (navLinksContainer.classList.contains('active')) {
+            if (navLinksContainer.classList.contains('menu-open')) {
                 navToggle.setAttribute('aria-label', 'Cerrar menú');
             } else {
                 navToggle.setAttribute('aria-label', 'Abrir menú');
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Cerrar menú al hacer clic en un enlace (para navegación en la misma página)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                if (navLinksContainer.classList.contains('active')) {
-                    navLinksContainer.classList.remove('active');
+                if (navLinksContainer.classList.contains('menu-open')) {
+                    navLinksContainer.classList.remove('menu-open');
                     navToggle.querySelector('i').classList.add('fa-bars');
                     navToggle.querySelector('i').classList.remove('fa-times');
                     navToggle.setAttribute('aria-label', 'Abrir menú');
