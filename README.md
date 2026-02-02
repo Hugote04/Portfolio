@@ -1,6 +1,6 @@
 # Portfolio de Hugo Tejero Mariño
 
-Este es el repositorio de mi portfolio personal, un proyecto vivo que refleja mi viaje como desarrollador web. Está construido con **HTML5, CSS3 y JavaScript puros**, aplicando una estética rústica y medieval inspirada en una de mis actividades anteriores.
+Este es el repositorio de mi portfolio personal. Está construido con **HTML5, CSS3 y JavaScript puros**, aplicando una estética rústica y medieval inspirada en una de mis actividades anteriores.
 
 > [**Puedes ver el portfolio en acción aquí.**](https://portfolio-hugotejero.vercel.app)
 
